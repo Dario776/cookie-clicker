@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import CookieGridView from '../views/CookieGridView.vue'
 import DidYouKnowView from '../views/DidYouKnowView.vue'
+import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory("/"),
@@ -18,7 +19,7 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: 'not-found',
-      component: () => import('../views/NotFoundView.vue'),
+      component: NotFoundView,
     },
   ],
 })

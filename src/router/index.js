@@ -3,7 +3,7 @@ import CookieGridView from '../views/CookieGridView.vue'
 import DidYouKnowView from '../views/DidYouKnowView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory("/"),
   routes: [
     {
       path: '/',
@@ -16,9 +16,8 @@ const router = createRouter({
       component: DidYouKnowView,
     },
     {
-      path: '/:NotFound(.*)',
-      name: 'NotFound',
-      //lazy loading
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
       component: () => import('../views/NotFoundView.vue'),
     },
   ],

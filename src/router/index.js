@@ -1,10 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import CookieGridView from '../views/CookieGridView.vue'
 import DidYouKnowView from '../views/DidYouKnowView.vue'
-import NotFoundView from '../views/NotFoundView.vue'
 
 const router = createRouter({
-  history: createWebHistory("/"),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -17,9 +16,9 @@ const router = createRouter({
       component: DidYouKnowView,
     },
     {
-      path: '/:pathMatch(.*)*',
-      name: 'not-found',
-      component: NotFoundView,
+      path: '/:pathMatch(.*)*', 
+      name: 'NotFound',
+      component: () => import('../views/NotFoundView.vue'),
     },
   ],
 })
